@@ -8,7 +8,7 @@ public class BoardSizeException extends Exception {
 //        System.out.println(exceptionMessage);
     }
 
-    public BoardSizeException() {
-        super();
-    }
+//    public BoardSizeException() {
+//        super();
+//    }
 }

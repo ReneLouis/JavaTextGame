@@ -10,10 +10,14 @@ public class Board {
     public Board(int value) throws BoardSizeException{
         try {
             if (value < minBoardDimension || value > maxBoardDimension) {
+                xAxisDim = yAxisDim = this.getMaxBoardDimension();
                 throw new BoardSizeException("Error! " + value + " is invalid: the board dimensions" +
-                     " must be over " + minBoardDimension + " and less than " + maxBoardDimension + ".");
+                        " must be over " + minBoardDimension + " and less than " + maxBoardDimension + ".\n" +
+                        "Board dimension were autmotiacally adjusted to " + maxBoardDimension + " by " +
+                        maxBoardDimension + ".");
             }
             else {
+                System.out.println("dimensions accepted");
                 xAxisDim = value;
                 yAxisDim = value;
             }

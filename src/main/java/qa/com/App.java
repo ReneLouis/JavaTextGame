@@ -6,7 +6,7 @@ import java.util.Scanner;
  * Hello world!
  *
  */
-public class App 
+public class App
 {
     public static void main( String[] args ) throws BoardSizeException {
         // Take USER INPUT TO SET BOARD DIMENSION:
@@ -15,6 +15,10 @@ public class App
         System.out.println( "Hello & Welcome!\n\nPlease Enter the board size:");
         int userChosenDimension = scanner.nextInt();
         Board board = new Board(userChosenDimension);
+        // OR:
+//        Board board = new Board();
+//        board.setDimensions(userChosenDimension);
+
 //        Board board = new Board();
 //        try {
 //            if (userChosenDimension >= board.getMinBoardDimension() && userChosenDimension <= board.getMaxBoardDimension())
