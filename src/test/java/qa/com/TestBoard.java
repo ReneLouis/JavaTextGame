@@ -93,7 +93,7 @@ public class TestBoard {
     public void test_board_constructor_with_size_89 () throws BoardSizeException {
         // ARRANGE
         int value = 89;
-        int expectedValue = 0; // value too large hence dimension not set.
+        int expectedValue = 20; // value too large hence dimension set to max value.
 
         // ACT
         Board board =  new Board(value);

@@ -15,9 +15,6 @@ public class App
         System.out.println( "Hello & Welcome!\n\nPlease Enter the board size:");
         int userChosenDimension = scanner.nextInt();
         Board board = new Board(userChosenDimension);
-        // OR:
-//        Board board = new Board();
-//        board.setDimensions(userChosenDimension);
 
 //        Board board = new Board();
 //        try {
@@ -27,12 +24,11 @@ public class App
 //                    " must be over " + board.getMinBoardDimension() + " and less than " + board.getMaxBoardDimension() + ".");
 //        }
 //        catch (BoardSizeException e) { e.printStackTrace(); };
-        System.out.println(board.getDimensions());
 
-        /* GET 1 monster in 10 cases as Character objects. All those to be Character objects.
-        Create a list of all those monsters.
-        List to be used to check no two objects on same gridPosition.
-        */
+    /* GET 1 monster in 10 cases as Character objects. All those to be Character objects.
+    Create a list of all those monsters.
+    List to be used to check no two objects on same gridPosition.
+    */
         int numberOfMonsters = (int) Math.round((board.getDimensions() * board.getDimensions()) * 0.1) + 1;
                     System.out.println("numberOfMonsters = " + numberOfMonsters);
         List<Character> boardOccupiers = new ArrayList<>();
@@ -40,21 +36,30 @@ public class App
         for (int i = 0 ; i < numberOfMonsters ; i++) {
             Monster monster = new Monster();
             boolean monsterAdded =  monster.placeOnBoard(board, boardOccupiers);
-            System.out.print("Monster Added? " + monsterAdded + " | Position: ");
-            System.out.println(monster.getGridPosition()[0] + " ; " + monster.getGridPosition()[1]);
+//            System.out.print("Monster Added? " + monsterAdded + " | Position: ");
+//            System.out.println(monster.getGridPosition()[0] + " ; " + monster.getGridPosition()[1]);
             if (!monsterAdded) { i--; }
         }
 
         System.out.println("Number of Monsters = " + boardOccupiers.size());
 
-        /* Add a treasure on the board: */
+    /* Add a treasure on the board: */
         Character treasure = new Treasure();
         boolean treasureAdded;
         do {
             treasureAdded = treasure.placeOnBoard(board, boardOccupiers);
-            System.out.print("Treasure Added? " + treasureAdded + " | Position: ");
-            System.out.println(treasure.getGridPosition()[0] + " ; " + treasure.getGridPosition()[1]);
+//            System.out.print("Treasure Added? " + treasureAdded );
+//            System.out.println(" | Position: " + treasure.getGridPosition()[0] + " ; " + treasure.getGridPosition()[1]);
         } while (!treasureAdded);
+
+    /* ADD THE PLAYER */
+        Player player = new Player();
+        boolean playerAdded;
+        do {
+            playerAdded = player.placeOnBoard(board, boardOccupiers);
+            System.out.print("Player Added? " + playerAdded );
+            System.out.println(" | Position: " + player.getGridPosition()[0] + " ; " + player.getGridPosition()[1]);
+        } while (!playerAdded);
 
         System.out.println("Number of items = " + boardOccupiers.size());
     }
