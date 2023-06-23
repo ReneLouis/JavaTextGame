@@ -1,0 +1,8 @@
+qa/com/App.class
+qa/com/BoardSizeException.class
+qa/com/Treasure.class
+qa/com/Monster.class
+qa/com/Board.class
+qa/com/MovementException.class
+qa/com/Player.class
+qa/com/Character.class
